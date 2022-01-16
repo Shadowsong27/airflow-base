@@ -1,4 +1,4 @@
-# Base Airflow DAGs
+# Base Airflow template
 
 This is an Airflow 2 template repo. It contains an out of box Airflow 2 instance for
 1. using a decoupled remote Git repo as the DAG folder
