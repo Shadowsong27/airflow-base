@@ -1,16 +1,21 @@
-.PHONY: call clean up
+#
+build:
+	docker-compose -f docker/docker-compose.yml build
 
-up: clean
-	docker-compose -f dockerfiles/docker-compose.yml up -d
-	docker cp dockerfiles/files/init.sh dev_airflow_scheduler:/usr/local/airflow/init.sh
-	echo "Waiting..." && sleep 10
-	docker exec -t dev_airflow_scheduler /usr/local/airflow/init.sh
+build-nc:
+	docker-compose -f docker/docker-compose.yml build --no-cache
 
-call:
-	docker exec -it dev_airflow_scheduler airflow $(filter-out $@,$(MAKECMDGOALS))
+up:
+	docker-compose -f docker/docker-compose.yml up
 
-clean:
-	docker-compose -f dockerfiles/docker-compose.yml down
+up-db:
+	docker-compose -f docker/docker-compose-db.yml up
 
-%:
-	@:
+down:
+	docker-compose -f docker/docker-compose.yml down
+
+run:
+	docker-compose -f docker/docker-compose.yml run airflow-worker $(c)
+
+shell:
+	docker run -it docker_airflow-worker bash
