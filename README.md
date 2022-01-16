@@ -13,8 +13,12 @@ If you are using commercially managed Airflow solution such as AWS MWAA,
 
 # Disclaimer
 
+I have not tested this. I just migrated it from one of my existing project, and abstracted 
+as a template. 
+
 I am not an expert at OS level configurations, so some of the strategy used here may not be 
-optimal, or secure. Please use at discretion, and PRs / patches are always welcomed.
+optimal (MOSTLY hackish), or secure. Please use at discretion, or better, summit PRs / patches
+and share the knowledge with me!
  
 # Usage
 
